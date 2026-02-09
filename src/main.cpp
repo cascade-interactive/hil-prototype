@@ -1,20 +1,20 @@
 #include <Arduino.h>
 
-// ESP32 Rocket Controller
-// Receives IMU data (velocity, angle), calculates trajectory, sends actuator commands
-// Goal: Gradually tilt from -5° to +5° over 30 seconds
+// ESP32 Rocket Controller for demo purposes
+// Receives fake IMU data (velocity, angle), calculates trajectory, sends actuator commands
+// It should gradually tilt from -5° to +5° over 30 seconds
 
 // ============== PROTOCOL ==============
 // Receive: I,seq,velocity,angle\n  (IMU data from simulator)
 // Send:    A,tilt\n                (Actuator command back)
 
-// ============== CONFIGURATION ==============
+// =========== CONFIGURATION ===========
 constexpr float START_ANGLE = -5.0f;    // Starting tilt target (degrees)
 constexpr float END_ANGLE = 5.0f;       // Ending tilt target (degrees)
 constexpr float TRANSITION_TIME = 30.0f; // Time to go from start to end (seconds)
 constexpr float CONTROL_GAIN = 0.5f;    // How aggressively to correct
 
-// ============== STATE ==============
+// =============== STATE ===============
 static uint32_t g_startTime = 0;
 static bool g_started = false;
 static uint32_t g_lastRecvSeq = 0;
