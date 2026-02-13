@@ -1,3 +1,5 @@
+![Status](https://img.shields.io/badge/Status-In%20Progress-ffb703) ![License](https://img.shields.io/badge/License-MIT-green)
+
 # Hardware In The Loop - A proof of concept
 
 Weekend project to see how far I can push a quick-and-dirty thrust vectoring loop: PC runs a 1 kHz 2D rocket sim, the ESP32 pretends to be the flight computer and outputs back a tilt command.
